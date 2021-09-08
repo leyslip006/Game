@@ -31,7 +31,7 @@ def pos():
     for x in range(4):
         if col[x] == user_guess[x]:
             fr+= 1
-    return fr
+    print(f"You have {fr} right colour(s) in the right position!")
     fr = 0
     
     
@@ -40,16 +40,20 @@ def rcol():
     for x in user_guess:
         if x in col:
             r+=1
-    print(f"You have {r} right colours!")
+    print(f"You have {r} right colour(s)!")
     r = 0
 
 
 while tries < 12:
     tries+=1
     guess()
-    pos()
-    rcol()
-    user_guess=[]
+    if user_guess == col:
+        print("You Win!")
+        break
+    else:
+        pos()
+        rcol()
+        user_guess=[]
     
 
     
